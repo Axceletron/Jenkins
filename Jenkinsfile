@@ -16,7 +16,7 @@ pipeline {
 
       script {
         cd ./app
-        docker.build registry + ":$BUILD_NUMBER"
+        ls
       }
     }}
   
