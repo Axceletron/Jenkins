@@ -33,9 +33,9 @@ resource "aws_instance" "foo" {
       "sudo amazon-linux-extras install nginx1",
       "service nginx start"
     ]
-  }*/
-}*/
-
+  }/
+}
+*/
 /*resource "aws_ebs_volume" "example" {
   availability_zone = "us-east-1a"
   size              = 40
