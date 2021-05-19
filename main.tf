@@ -18,7 +18,7 @@ output "ami" {
 
   value = data.aws_ami.ubuntu.id 
 }
-/*
+
 resource "aws_instance" "foo" {
   ami           = data.aws_ami.ubuntu.id 
   instance_type = "t2.micro"
@@ -33,9 +33,9 @@ resource "aws_instance" "foo" {
       "sudo amazon-linux-extras install nginx1",
       "service nginx start"
     ]
-  }/
+  }*/
 }
-*/
+
 /*resource "aws_ebs_volume" "example" {
   availability_zone = "us-east-1a"
   size              = 40

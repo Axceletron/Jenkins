@@ -13,6 +13,7 @@ stages {
         git 'https://github.com/Axceletron/Jenkins.git'
         sh 'sudo cp /home/osboxes/vars.tf ./'
         sh 'ls'
+        sh 'pwd'
         sh 'cat vars.tf'
       // One or more steps need to be included within the steps block.
     }
