@@ -29,13 +29,7 @@ stages {
 
   stage('deploy') {
     steps {
-        withEnv(['AWS_ACCESS_KEY_ID="AKIAZUIK4NDFC3UTUJAI"', 'AWS_SECRET_ACCESS_KEY="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"', 'AWS_DEFAULT_REGION="us-east-1"']) {
-            // some block
-            sh "echo \$AWS_ACCESS_KEY_ID"
-        }
-
-
-         sh 'terraform apply -auto-approve'
+      sh 'terraform apply -auto-approve'
       // One or more steps need to be included within the steps block.
     }
   }
