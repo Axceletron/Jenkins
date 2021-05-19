@@ -1,0 +1,4 @@
+vars.tf
+terraform.tfstate
+terraform.tfstate.backup
+.terraform/plugin/darwin_amd64
