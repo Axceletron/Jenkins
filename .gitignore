@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 vars.tf
 terraform.tfstate
 terraform.tfstate.backup
 .terraform/plugin/darwin_amd64
 .terraform/plugins/darwin_amd64/terraform-provider-aws_v3.37.0_x5 
-.terraform/plugins/darwin_amd64/lock.json 
-=======
-vars.tf
->>>>>>> d4f419ccf0457ef72dab227e727bade3fbf36726
+.terraform/plugins/darwin_amd64/lock.json
