@@ -23,10 +23,6 @@ resource "aws_instance" "foo" {
   ami           = data.aws_ami.ubuntu.id 
   instance_type = "t2.micro"
   key_name = "test-keypair"
-  ebs_block_device {
-      device_name = "/dev/sda1"
-      volume_size = 10
-  }
   /*provisioner "remote-exec" {
     inline = [
       "sudo yum update",
