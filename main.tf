@@ -43,14 +43,8 @@ resource "aws_instance" "foo" {
 
 resource "aws_vpc" "my_vpc" {
   cidr_block = var.ipblock
-
-
-  dynamic "tag" {
-    for_each= var.tags_custom
-    
-    content {
-      key = tag.key
-      value = tag.value
-    }
+  tags = {
+    for tag in var.tags_custom:
+    tag.name => tag.val
   }
 }
