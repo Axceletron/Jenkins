@@ -29,8 +29,8 @@ stages {
 
   stage('deploy') {
     steps {
-      sh 'echo "Applying infra"'
-      sh 'terraform apply -auto-approve'
+      sh 'echo "Destroy infra"'
+      sh 'terraform destroy -auto-approve'
 // One or more steps need to be included within the steps block.
     }
   }
