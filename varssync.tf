@@ -10,3 +10,10 @@ variable "tags_custom" {
         val = "Test"
     }]
 }
+variable "project-name" {
+    default = "Practise"
+}
+
+variable "env" {
+    default = "Development"
+}

@@ -4,3 +4,9 @@ terraform.tfstate.backup
 .terraform/plugin/darwin_amd64
 .terraform/plugins/darwin_amd64/terraform-provider-aws_v3.37.0_x5 
 .terraform/plugins/darwin_amd64/lock.json
+.terraform/plugins/registry.terraform.io/hashicorp/aws/3.42.0/darwin_amd64/terraform-provider-aws_v3.42.0_x5
+.terraform/modules/modules.json
+.gitignore
+.terraform/plugins/selections.json
+.gitignore
+.terraform/plugins/registry.terraform.io/-/aws/3.42.0/darwin_amd64/terraform-provider-aws_v3.42.0_x5
