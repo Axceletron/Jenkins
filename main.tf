@@ -126,7 +126,7 @@ module "IGW" {
   vpcid = module.VPC.vpcid
   igw_tag = [
     {name = "Name" 
-    val = "${project-name}-IGW"},
+    val = "${var.project-name}-IGW"},
     {name = "Environment"
     val = var.env},
     {name = "Project"
@@ -138,7 +138,7 @@ module "NAT" {
   sub_id = module.Subnet-pvt[local.azone[0]].subnetid
   nat_tag = [
     {name = "Name" 
-    val = "${project-name}-NAT"},
+    val = "${var.project-name}-NAT"},
     {name = "Environment"
     val = var.env},
     {name = "Project"
@@ -146,7 +146,42 @@ module "NAT" {
   ]
   nat_ip_tag = [
     {name = "Name" 
-    val = "${project-name}-NAT-IP"},
+    val = "${var.project-name}-NAT-IP"},
+    {name = "Environment"
+    val = var.env},
+    {name = "Project"
+    val = var.project-name}
+  ]
+}
+
+locals {
+  pvt_rt=[{gwtype = "NAT" , gwid = module.NAT.natid , dcidr = "0.0.0.0/0"}]
+  pub_rt=[{gwtype = "IGW" , gwid = module.IGW.igwid , dcidr = "0.0.0.0/0"}]
+}
+
+module "Route-pvt" {
+  source = "./modules/VPC/Route"
+  vpcid = module.VPC.vpcid
+  rts = local.pvt_rt 
+  sub_id = [for i in local.azone: module.Subnet-pvt[i].subnetid]
+  rt_tag = [
+    {name = "Name" 
+    val = "Private-RT"},
+    {name = "Environment"
+    val = var.env},
+    {name = "Project"
+    val = var.project-name}
+  ]
+}
+
+module "Route-pub" {
+  source = "./modules/VPC/Route"
+  vpcid = module.VPC.vpcid
+  rts = local.pub_rt 
+  sub_id = [for i in local.azone: module.Subnet-pub[i].subnetid]
+  rt_tag = [
+    {name = "Name" 
+    val = "Public-RT"},
     {name = "Environment"
     val = var.env},
     {name = "Project"
@@ -161,9 +196,6 @@ output "azs" {
 
 
 output "ipbl" {
-  value = local.cidr_blk_pvt
+  value = module.Route-pvt.rt
 }
 
-output "ipbl1" {
-  value = local.cidr_blk_pub
-}
